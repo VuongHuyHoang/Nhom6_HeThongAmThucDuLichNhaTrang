@@ -335,7 +335,7 @@ require_once dirname(__DIR__, 2) . '/layouts/navbar.php';
                 </div>
 
                 <!-- Bảng Dự Toán Quãng Đường & Chi Phí Thông Minh ($0 API) -->
-                <div class="card border-0 rounded-3 p-3 mb-2" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0 !important;">
+                <div class="card border-0 rounded-3 p-3 mb-2 trip-budget-card">
                     <h6 class="fw-bold text-dark small text-uppercase mb-2 d-flex align-items-center gap-1.5" style="letter-spacing: 0.5px;">
                         <i class="bi bi-calculator text-primary"></i>Dự Toán Hành Trình & Chi Phí Di Chuyển
                     </h6>

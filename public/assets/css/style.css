@@ -2424,6 +2424,89 @@ select option,
 }
 
 /* ========================================================
+   MODAL & DETAIL CARDS DARK MODE ENHANCEMENTS
+   ======================================================== */
+/* Bảng Dự Toán Hành Trình Trong Modal Lộ Trình */
+.trip-budget-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0 !important;
+}
+
+[data-bs-theme="dark"] .trip-budget-card,
+[data-bs-theme="dark"] div[style*="#f8fafc"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid #334155 !important;
+}
+
+[data-bs-theme="dark"] .trip-budget-card .text-dark,
+[data-bs-theme="dark"] div[style*="#f8fafc"] .text-dark {
+    color: #f8fafc !important;
+}
+
+[data-bs-theme="dark"] .trip-budget-card .bg-white,
+[data-bs-theme="dark"] div[style*="#f8fafc"] .bg-white {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+}
+
+[data-bs-theme="dark"] .trip-budget-card .text-secondary,
+[data-bs-theme="dark"] div[style*="#f8fafc"] .text-secondary {
+    color: #cbd5e1 !important;
+}
+
+[data-bs-theme="dark"] .trip-budget-card .text-muted,
+[data-bs-theme="dark"] div[style*="#f8fafc"] .text-muted {
+    color: #94a3b8 !important;
+}
+
+/* Thẻ Thuyết Minh Viên AI (Audio Guide) Trên Trang Chi Tiết */
+.location-audio-guide-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] {
+    background: linear-gradient(135deg, #042f2e 0%, #0c4a6e 100%) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .text-dark,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .text-dark {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .text-muted,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .text-muted {
+    color: #cbd5e1 !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .badge.bg-primary-subtle,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .badge.bg-primary-subtle {
+    background-color: rgba(14, 165, 233, 0.25) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .bg-white,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .bg-white {
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .rate-btn,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .rate-btn {
+    color: #94a3b8 !important;
+}
+
+[data-bs-theme="dark"] .location-audio-guide-card .rate-btn.active,
+[data-bs-theme="dark"] div[style*="#f0fdf4"] .rate-btn.active {
+    color: #38bdf8 !important;
+}
+
+/* ========================================================
    19. ADMIN PANEL GALLERY IMAGE STYLES
    ======================================================== */
 .gallery-item-wrap {

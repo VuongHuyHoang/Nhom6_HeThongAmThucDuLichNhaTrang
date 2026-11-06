@@ -124,7 +124,7 @@ if ($hasTickets) {
                     </div>
 
                     <!-- THUYẾT MINH VIÊN GIỌNG NÓI TỰ ĐỘNG (AUDIO GUIDE - $0 API) -->
-                    <div class="card border-0 rounded-4 shadow-2xs mb-4 overflow-hidden" style="background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 1px solid #bae6fd !important;">
+                    <div class="card border-0 rounded-4 shadow-2xs mb-4 overflow-hidden location-audio-guide-card">
                         <div class="card-body p-3 d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div class="d-flex align-items-center gap-3">
                                 <button type="button" id="btnAudioGuideToggle" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 46px; height: 46px; flex-shrink: 0;" onclick="toggleAudioGuide()" title="Bấm để phát thuyết minh">
