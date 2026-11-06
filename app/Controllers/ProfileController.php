@@ -111,6 +111,12 @@ class ProfileController
             return;
         }
 
+        if ($sdt !== '' && !preg_match('/^(0|\+84)[0-9]{9,10}$/', $sdt)) {
+            flash('error', 'Số điện thoại không hợp lệ! Vui lòng nhập 10-11 chữ số (ví dụ: 0912345678).');
+            redirect(url('profile?tab=account'));
+            return;
+        }
+
         try {
             $this->nguoiDungModel->capNhatThongTin($userId, $hoTen, $sdt ?: null);
             $_SESSION['user_name'] = $hoTen;

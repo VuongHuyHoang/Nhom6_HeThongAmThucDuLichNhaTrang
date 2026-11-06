@@ -30,6 +30,11 @@ class BookingService
             throw new Exception("Số lượng vé phải lớn hơn 0.");
         }
 
+        $sdtKhach = trim((string)($thongTinKhach['sdt'] ?? ''));
+        if (!preg_match('/^(0|\+84)[0-9]{9,10}$/', $sdtKhach)) {
+            throw new Exception("Số điện thoại liên hệ không hợp lệ! Chỉ chấp nhận 10-11 chữ số (ví dụ: 0912345678).");
+        }
+
         $this->db->beginTransaction();
         try {
             // 1. Trừ tồn kho an toàn (Atomic Update trực tiếp trên CSDL)
