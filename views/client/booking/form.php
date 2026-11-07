@@ -94,8 +94,21 @@ require_once dirname(__DIR__, 2) . '/layouts/header.php';
                                 <input type="email" name="email_khach_hang" class="form-control" value="<?= htmlspecialchars($_SESSION['user_email'] ?? '') ?>" required>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-semibold">Số điện thoại liên hệ</label>
-                                <input type="tel" name="sdt_khach_hang" class="form-control" placeholder="0912345678" required>
+                                <label class="form-label small fw-semibold">Số điện thoại liên hệ <span class="text-danger">*</span></label>
+                                <input type="tel" 
+                                       id="sdt_khach_hang"
+                                       name="sdt_khach_hang" 
+                                       class="form-control" 
+                                       placeholder="0912345678" 
+                                       inputmode="numeric"
+                                       maxlength="11"
+                                       pattern="^(0|\+84)[0-9]{9,10}$"
+                                       title="Vui lòng nhập số điện thoại hợp lệ gồm 10-11 chữ số (ví dụ: 0912345678)"
+                                       oninput="this.value = this.value.replace(/[^0-9+]/g, ''); validatePhoneInput(this);"
+                                       required>
+                                <div class="invalid-feedback small" id="sdtErrorFeedback">
+                                    Số điện thoại phải gồm 10-11 chữ số và bắt đầu bằng 0 hoặc +84.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -137,6 +150,32 @@ require_once dirname(__DIR__, 2) . '/layouts/header.php';
     document.getElementById('sl_nl').addEventListener('input', capNhatTongTien);
     document.getElementById('sl_te').addEventListener('input', capNhatTongTien);
     capNhatTongTien();
+
+    function validatePhoneInput(input) {
+        const phoneRegex = /^(0|\+84)[0-9]{9,10}$/;
+        const val = input.value.trim();
+        if (val.length > 0 && !phoneRegex.test(val)) {
+            input.classList.add('is-invalid');
+            input.classList.remove('is-valid');
+            return false;
+        } else if (phoneRegex.test(val)) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+            return true;
+        }
+        input.classList.remove('is-invalid', 'is-valid');
+        return false;
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        const phoneInput = document.getElementById('sdt_khach_hang');
+        const phoneRegex = /^(0|\+84)[0-9]{9,10}$/;
+        if (!phoneRegex.test(phoneInput.value.trim())) {
+            e.preventDefault();
+            phoneInput.classList.add('is-invalid');
+            phoneInput.focus();
+        }
+    });
 </script>
 
 <?php require_once dirname(__DIR__, 2) . '/layouts/footer.php'; ?>

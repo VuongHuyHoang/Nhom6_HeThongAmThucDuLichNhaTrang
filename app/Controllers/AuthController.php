@@ -102,6 +102,12 @@ class AuthController
             return;
         }
 
+        if ($sdt !== '' && !preg_match('/^(0|\+84)[0-9]{9,10}$/', $sdt)) {
+            flash('error', 'Số điện thoại không hợp lệ! Vui lòng nhập 10-11 chữ số (ví dụ: 0912345678).');
+            redirect(url('register'));
+            return;
+        }
+
         if (strlen($matKhau) < 6) {
             flash('error', 'Mật khẩu phải có độ dài ít nhất 6 ký tự.');
             redirect(url('register'));

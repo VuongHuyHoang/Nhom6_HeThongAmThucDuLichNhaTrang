@@ -84,6 +84,25 @@ class BookingController
             'phuong_thuc' => $phuongThuc
         ];
 
+        // Kiểm tra tính hợp lệ của thông tin liên hệ nhận vé
+        if (empty($thongTinKhach['ten'])) {
+            flash('error', 'Vui lòng nhập họ và tên người nhận vé.');
+            redirect(url('booking/' . $goiVeId));
+            return;
+        }
+
+        if (!filter_var($thongTinKhach['email'], FILTER_VALIDATE_EMAIL)) {
+            flash('error', 'Địa chỉ email nhận vé không hợp lệ.');
+            redirect(url('booking/' . $goiVeId));
+            return;
+        }
+
+        if (!preg_match('/^(0|\+84)[0-9]{9,10}$/', $thongTinKhach['sdt'])) {
+            flash('error', 'Số điện thoại không hợp lệ! Vui lòng chỉ nhập chữ số (10-11 số, bắt đầu bằng 0 hoặc +84, ví dụ: 0912345678).');
+            redirect(url('booking/' . $goiVeId));
+            return;
+        }
+
         try {
             $maDonHang = $this->bookingService->datVe(
                 (int)$_SESSION['user_id'],
